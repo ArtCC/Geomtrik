@@ -532,6 +532,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6485890580401270992, guid: 4bcf1334b089a455286006c90cfb2721, type: 3}
+      propertyPath: winCanvas
+      value: 
+      objectReference: {fileID: 2087463514}
     - target: {fileID: 8147724340084463033, guid: 4bcf1334b089a455286006c90cfb2721, type: 3}
       propertyPath: m_RootOrder
       value: 8
