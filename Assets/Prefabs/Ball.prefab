@@ -149,7 +149,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0.75
+  m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: a40dff3663ffc42fca299842c83f306e, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -168,3 +168,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 5
+  winCanvas: {fileID: 0}

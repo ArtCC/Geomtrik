@@ -6,13 +6,15 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour {
 
     public float velocity;
+    public GameObject winCanvas;
 
     private Rigidbody2D rigid;
+    private Vector2 lastTouchPosition;
     private float degreesPerSec = 360f;
     private float horizontal;
-    private Vector2 lastTouchPosition;
     private bool onPosition = false;
     private bool onPlayerWin = false;
+    private float initialTime = 0;
 
     // Start is called before the first frame update
     void Start() {
@@ -29,6 +31,20 @@ public class Player : MonoBehaviour {
         }
         lateralMovement();
         playerWin();
+
+        if (onPlayerWin == true && initialTime > 3) {
+            reloadGame();
+        } else {
+            initialTime += Time.deltaTime;
+        }
+    }
+
+    public void reloadGame() {
+        winCanvas.SetActive(false);
+        onPosition = false;
+        onPlayerWin = false;
+        rigid.velocity = Vector2.up * velocity;
+        rigid.velocity = new Vector2(1.0f * 5, rigid.velocity.y);
     }
 
     // Private functions
@@ -47,15 +63,11 @@ public class Player : MonoBehaviour {
     }
 
     private void playerWin() {
-        if (onPosition == true && onPlayerWin == true && rigid.velocity.x == 0 && rigid.velocity.y == 0) {
+        if (onPosition == true && onPlayerWin == false && rigid.velocity.x == 0 && rigid.velocity.y == 0) {
+            winCanvas.SetActive(true);
             onPlayerWin = true;
-            Debug.Log("You win!!!");
+            initialTime = 0;
         }
-    }
-
-    private void reloadGame() {
-        onPosition = false;
-        onPlayerWin = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collider) {
