@@ -1,3 +1,3 @@
-# Geometrik
+# Geomtrik
 
-Unity 2D game development in C#.
+Unity 2D game development in C# for physics exercise.
